@@ -44,8 +44,9 @@ export class Collision {
     if (
       ball.pos.x + ball.width > paddle.pos.x &&
       ball.pos.x < paddle.pos.x + paddle.width &&
-      ball.pos.y + ball.height === paddle.pos.y
+      ball.pos.y + ball.height >= paddle.pos.y
     ) {
+      ball.tickXSpeedFromPaddle(paddle);
       ball.changeYDirection();
     }
 

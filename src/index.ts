@@ -65,6 +65,8 @@ function gameLoop(
   if (collidingBrick) {
     score++;
     view.drawScore(score);
+
+    ball.tickSpeed();
   }
 
   // Game over when ball leaves playfield
