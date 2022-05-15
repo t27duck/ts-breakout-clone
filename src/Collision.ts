@@ -19,12 +19,31 @@ export class Collision {
     return false
   }
 
+  isCollidingSide(ball: Ball, brick: Brick | Paddle): boolean {
+    var dx = (ball.pos.x + ball.width / 2) - (brick.pos.x + brick.width / 2);
+    var dy = (ball.pos.y + ball.height / 2) - (brick.pos.y + brick.height / 2);
+    var width = (ball.width + brick.width) / 2;
+    var height = (ball.height + brick.height) / 2;
+    var crossWidth = width * dy;
+    var crossHeight = height * dx;
+
+    if (crossWidth>crossHeight) {
+        return (crossWidth > -crossHeight) ? false : true; // bottom : left
+    } else {
+        return (crossWidth > -crossHeight) ? true : false; // right : top
+    }
+  }
+
   isCollidingBricks(ball: Ball, bricks: Brick[]): boolean {
     let colliding  = false
 
     bricks.forEach((brick, index) => {
       if (this.isCollidingBrick(ball, brick)) {
         ball.changeYDirection();
+
+        if (this.isCollidingSide(ball, brick)) {
+          ball.changeXDirection();
+        }
 
         if (brick.energy === 1) {
           bricks.splice(index, 1);
