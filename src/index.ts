@@ -59,7 +59,7 @@ function gameLoop(
     paddle.movePaddle();
   }
 
-  collision.checkBallBrickCollision(ball, paddle, view);
+  collision.checkBallPaddleAndWallCollision(ball, paddle, view);
   const collidingBrick = collision.isCollidingBricks(ball, bricks);
 
   if (collidingBrick) {

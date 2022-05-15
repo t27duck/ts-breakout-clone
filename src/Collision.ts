@@ -39,7 +39,7 @@ export class Collision {
     return colliding;
   }
 
-  checkBallBrickCollision(ball: Ball, paddle: Paddle, view: CanvasView): void {
+  checkBallPaddleAndWallCollision(ball: Ball, paddle: Paddle, view: CanvasView): void {
     // 1. Check ball collision with paddle
     if (
       ball.pos.x + ball.width > paddle.pos.x &&
