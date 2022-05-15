@@ -79,7 +79,7 @@ export class Ball {
     const currentXSpeed = this.speed.x;
     const xDirection = this.speed.x > 0 ? "right" : "left"
     const speedDown = 0.6;
-    const speedUp = 1.2;
+    const speedUp = 1.08;
 
     if (paddle.isMovingLeft) {
       if (xDirection === "right") {
