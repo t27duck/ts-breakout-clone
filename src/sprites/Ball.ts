@@ -48,6 +48,12 @@ export class Ball {
     this.position.y += this.speed.y;
   }
 
+  forceUp(): void {
+    if (this.speed.y > 0) {
+      this.speed.y = -this.speed.y;
+    }
+  }
+
   tickSpeed(): void {
     const currentXSpeed = this.speed.x;
     const currentYSpeed = this.speed.y

@@ -47,7 +47,7 @@ export class Collision {
       ball.pos.y + ball.height >= paddle.pos.y
     ) {
       ball.tickXSpeedFromPaddle(paddle);
-      ball.changeYDirection();
+      ball.forceUp();
     }
 
     // 2. Check ball collision with walls
