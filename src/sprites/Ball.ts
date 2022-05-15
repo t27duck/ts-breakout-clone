@@ -78,20 +78,22 @@ export class Ball {
   tickXSpeedFromPaddle(paddle: Paddle): void {
     const currentXSpeed = this.speed.x;
     const xDirection = this.speed.x > 0 ? "right" : "left"
+    const speedDown = 0.6;
+    const speedUp = 1.2;
 
     if (paddle.isMovingLeft) {
       if (xDirection === "right") {
-        this.speed.x = currentXSpeed * 0.6;
+        this.speed.x = currentXSpeed * speedDown;
       } else {
-        this.speed.x = currentXSpeed * 1.2;
+        this.speed.x = currentXSpeed * speedUp;
       }
     }
 
     if (paddle.isMovingRight) {
       if (xDirection === "right") {
-        this.speed.x = currentXSpeed * 1.2;
+        this.speed.x = currentXSpeed * speedUp;
       } else {
-        this.speed.x = currentXSpeed * 0.6;
+        this.speed.x = currentXSpeed * speedDown;
       }
     }
   }
