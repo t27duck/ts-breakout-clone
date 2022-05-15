@@ -59,17 +59,19 @@ export class Ball {
     const currentYSpeed = this.speed.y
     const xDirection = this.speed.x > 0 ? "right" : "left"
     const yDirection = this.speed.y > 0 ? "down" : "up"
+    const xSpeedAdjustment = (0.1 * (1 - currentXSpeed / 12));
+    const ySpeedAdjustment = (0.1 * (1 - currentYSpeed / 12));
 
     if (xDirection === "right") {
-      this.speed.x = currentXSpeed + (0.1 * (1 - currentXSpeed / 12));
+      this.speed.x = currentXSpeed + xSpeedAdjustment;
     } else {
-      this.speed.x = currentXSpeed - (0.1 * (1 - currentXSpeed / 12));
+      this.speed.x = currentXSpeed - xSpeedAdjustment;
     }
 
     if (yDirection === "down") {
-      this.speed.y = currentYSpeed + (0.1 * (1 - currentYSpeed / 12));
+      this.speed.y = currentYSpeed + ySpeedAdjustment;
     } else {
-      this.speed.y = currentYSpeed - (0.1 * (1 - currentYSpeed / 12));
+      this.speed.y = currentYSpeed - ySpeedAdjustment;
     }
   }
 
