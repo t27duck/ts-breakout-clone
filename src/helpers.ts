@@ -34,3 +34,7 @@ export function createBricks(): Brick[] {
     ];
   }, [] as Brick[]);
 }
+
+export function coinFlip(): boolean {
+  return Math.floor(Math.random() * 2) === 1;
+}

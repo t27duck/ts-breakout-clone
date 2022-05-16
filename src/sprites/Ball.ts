@@ -1,5 +1,6 @@
 import { Vector } from '../types';
 import { Paddle } from './Paddle';
+import { coinFlip } from '../helpers';
 
 export class Ball {
   private speed: Vector;
@@ -15,6 +16,7 @@ export class Ball {
     this.ballSize = ballSize;
     this.position = position;
     this.ballImage.src = image;
+    this.spinStartSpeed();
   }
 
   // Getters
@@ -35,6 +37,14 @@ export class Ball {
   }
 
   // Methods
+  spinStartSpeed(): void {
+    if (coinFlip()) {
+      this.changeXDirection();
+    }
+
+    this.speed.x += ((Math.random() * 1.25) * (coinFlip() ? 1 : -1));
+  }
+
   changeYDirection(): void {
     this.speed.y = -this.speed.y;
   }
