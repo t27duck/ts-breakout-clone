@@ -5,6 +5,7 @@ import { coinFlip } from '../helpers';
 export class Ball {
   private speed: Vector;
   private ballImage: HTMLImageElement = new Image();
+  collided: boolean = false;
 
   constructor(
     speed: number,

@@ -8,6 +8,7 @@ export class Collision {
 
   isCollidingBrick(ball: Ball, brick: Brick): boolean {
     if (
+      !ball.collided &&
       ball.pos.x < brick.pos.x + brick.width &&
       ball.pos.x + ball.width > brick.pos.x &&
       ball.pos.y < brick.pos.y + brick.height &&
@@ -20,14 +21,14 @@ export class Collision {
   }
 
   isCollidingSide(ball: Ball, brick: Brick | Paddle): boolean {
-    var dx = (ball.pos.x + ball.width / 2) - (brick.pos.x + brick.width / 2);
-    var dy = (ball.pos.y + ball.height / 2) - (brick.pos.y + brick.height / 2);
-    var width = (ball.width + brick.width) / 2;
-    var height = (ball.height + brick.height) / 2;
-    var crossWidth = width * dy;
-    var crossHeight = height * dx;
+    const dx = (ball.pos.x + ball.width / 2) - (brick.pos.x + brick.width / 2);
+    const dy = (ball.pos.y + ball.height / 2) - (brick.pos.y + brick.height / 2);
+    const width = (ball.width + brick.width) / 2;
+    const height = (ball.height + brick.height) / 2;
+    const crossWidth = width * dy;
+    const crossHeight = height * dx;
 
-    if (crossWidth>crossHeight) {
+    if (crossWidth > crossHeight) {
         return (crossWidth > -crossHeight) ? false : true; // bottom : left
     } else {
         return (crossWidth > -crossHeight) ? true : false; // right : top
@@ -40,6 +41,7 @@ export class Collision {
     bricks.forEach((brick, index) => {
       if (this.isCollidingBrick(ball, brick)) {
         ball.changeYDirection();
+        ball.collided = true;
 
         if (this.isCollidingSide(ball, brick)) {
           ball.changeXDirection();
@@ -54,6 +56,8 @@ export class Collision {
         colliding = true
       }
     })
+
+    ball.collided = false;
 
     return colliding;
   }
