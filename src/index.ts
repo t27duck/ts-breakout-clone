@@ -25,6 +25,7 @@ import { createBricks } from "./helpers";
 
 let gameOver = false;
 let score = 0;
+let lives = 3;
 
 function setGameOver(view: CanvasView) {
   view.drawInfo("Game Over!");
@@ -71,7 +72,14 @@ function gameLoop(
 
   // Game over when ball leaves playfield
   if (ball.pos.y > view.canvas.height) {
-    gameOver = true;
+    lives--;
+    view.drawLives(`Lives: ${lives}`);
+    if (lives === 0) {
+      gameOver = true;
+    } else {
+      view.drawInfo("Launch ball...");
+      return;
+    }
   }
 
   if (bricks.length === 0) {
@@ -88,9 +96,15 @@ function gameLoop(
 
 function startGame(view: CanvasView) {
   // Reset displays
-  score = 0;
+  if (lives === 3 || lives === 0) {
+    lives = 3;
+    score = 0;
+    view.drawScore(score);
+  }
+
+  view.drawLives(`Lives: ${lives}`);
   view.drawInfo("");
-  view.drawScore(score);
+
   // Create collision instance
   const collision = new Collision();
 

@@ -10,6 +10,7 @@ export class CanvasView {
   private scoreDisplay: HTMLObjectElement | null;
   private start: HTMLObjectElement | null;
   private info: HTMLObjectElement | null;
+  private lives: HTMLObjectElement | null;
 
   constructor(canvasName: string) {
     this.canvas = document.querySelector(canvasName) as HTMLCanvasElement;
@@ -17,6 +18,7 @@ export class CanvasView {
     this.scoreDisplay = document.querySelector("#score") as HTMLObjectElement;
     this.start = document.querySelector("#start") as HTMLObjectElement;
     this.info = document.querySelector("#info") as HTMLObjectElement;
+    this.lives = document.querySelector("#lives") as HTMLObjectElement;
   }
 
   clear(): void {
@@ -36,6 +38,12 @@ export class CanvasView {
   drawInfo(text: string): void {
     if (this.info) {
       this.info.innerHTML = text;
+    }
+  }
+
+  drawLives(text: string): void {
+    if (this.lives) {
+      this.lives.innerHTML = text;
     }
   }
 
