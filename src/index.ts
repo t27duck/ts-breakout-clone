@@ -26,6 +26,7 @@ import { createBricks } from "./helpers";
 let gameOver = false;
 let score = 0;
 let lives = 3;
+let bricks: Brick[];
 
 function setGameOver(view: CanvasView) {
   view.drawInfo("Game Over!");
@@ -95,11 +96,14 @@ function gameLoop(
 }
 
 function startGame(view: CanvasView) {
-  // Reset displays
+  // Reset game
   if (lives === 3 || lives === 0) {
     lives = 3;
     score = 0;
     view.drawScore(score);
+
+    // Create all bricks
+    bricks = createBricks();
   }
 
   view.drawLives(`Lives: ${lives}`);
@@ -107,9 +111,6 @@ function startGame(view: CanvasView) {
 
   // Create collision instance
   const collision = new Collision();
-
-  // Create all bricks
-  const bricks = createBricks();
 
   // Create ball
   const ball = new Ball(
