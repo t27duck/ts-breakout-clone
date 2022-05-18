@@ -127,7 +127,7 @@ function startGame(view: CanvasView) {
     PADDLE_HEIGHT,
     {
       x: PADDLE_STARTX,
-      y: view.canvas.height - PADDLE_HEIGHT - 5, // Arbitrary bottom padding
+      y: view.canvas.height - PADDLE_HEIGHT - 2, // Arbitrary bottom padding
     },
     PADDLE_IMAGE
   );

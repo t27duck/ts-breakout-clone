@@ -19,12 +19,12 @@ export const BRICK_WIDTH = canvas
 export const BRICK_HEIGHT = canvas
   ? Math.floor((canvas.height - STAGE_PADDING * 2) / STAGE_ROWS) - BRICK_PADDING
   : 30;
-export const PADDLE_WIDTH = 175;
-export const PADDLE_HEIGHT = 25;
+export const PADDLE_WIDTH = 100;
+export const PADDLE_HEIGHT = 10;
 export const PADDLE_STARTX = 175;
 export const PADDLE_SPEED = 10;
 export const BALL_SPEED = 5;
-export const BALL_SIZE = 20;
+export const BALL_SIZE = 15;
 export const BALL_STARTX = 250;
 export const BALL_STARTY = 400;
 
