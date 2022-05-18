@@ -6,8 +6,8 @@
   </head>
   <body>
     <div id="main" class="main">
-      <canvas id="playField" width="1000" height="600"></canvas>
-      <img id="background" src="./images/background.png"></img>
+      <canvas id="playField" width="500" height="600"></canvas>
+      <img id="background" width="500" height="600" src="./images/background.png"></img>
       <div id="display">
         <div id="score"></div>
         <button id="start">Start</button>
@@ -21,17 +21,16 @@
   </body>
   <style>
     :root {
-      --width: 1000px;
+      --width: 500px;
       --height: 650px;
     }
 
     #main {
       position: relative;
-      width: 1000px;
       margin: 0 auto;
       width: var(--width);
       height: var(--height);
-      font-size: 32px;
+      font-size: 10px;
       font-family: Arial, Helvetica, sans-serif;
     }
 
