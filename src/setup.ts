@@ -3,6 +3,9 @@ import BLUE_BRICK_IMAGE from './images/brick-blue.png';
 import GREEN_BRICK_IMAGE from './images/brick-green.png';
 import YELLOW_BRICK_IMAGE from './images/brick-yellow.png';
 import PURPLE_BRICK_IMAGE from './images/brick-purple.png';
+import ORANGE_BRICK_IMAGE from './images/brick-orange.png';
+import GREENBLUE_BRICK_IMAGE from './images/brick-greenblue.png';
+import PINK_BRICK_IMAGE from './images/brick-pink.png';
 
 // Grab the canvas element for calculating the brick width
 // depending on canvas width
@@ -33,7 +36,10 @@ export const BRICK_IMAGES: { [key: number]: string } = {
   2: GREEN_BRICK_IMAGE,
   3: YELLOW_BRICK_IMAGE,
   4: BLUE_BRICK_IMAGE,
-  5: PURPLE_BRICK_IMAGE
+  5: PURPLE_BRICK_IMAGE,
+  6: ORANGE_BRICK_IMAGE,
+  7: GREENBLUE_BRICK_IMAGE,
+  8: PINK_BRICK_IMAGE
 };
 
 export const BRICK_ENERGY: { [key: number]: number } = {
@@ -41,15 +47,18 @@ export const BRICK_ENERGY: { [key: number]: number } = {
   2: 1, // Green brick
   3: 2, // Yellow brick
   4: 2, // Blue brick
-  5: 3 // Purple brick
+  5: 3, // Purple brick
+  6: 1, // Orange brick
+  7: 2, // Green-blue brick
+  8: 2, // Pink brick
 };
 
 // prettier-ignore
 export const LEVEL = [
   0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-  0, 0, 1, 1, 1, 1, 1, 1, 0, 0,
+  0, 6, 1, 1, 1, 1, 1, 1, 6, 0,
   0, 2, 2, 2, 2, 2, 2, 2, 2, 0,
   0, 3, 3, 3, 3, 3, 3, 3, 3, 0,
-  0, 0, 4, 4, 4, 4, 4, 4, 0, 0,
-  0, 0, 5, 5, 0, 0, 5, 5, 0, 0,
+  0, 7, 4, 4, 4, 4, 4, 4, 7, 0,
+  0, 8, 5, 5, 0, 0, 5, 5, 8, 0,
 ];
