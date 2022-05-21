@@ -75,8 +75,11 @@ export class Collision {
 
     // 2. Check ball collision with walls
     // Ball x movement constraints
-    if (ball.pos.x > view.canvas.width - ball.width || ball.pos.x < 0) {
-      ball.changeXDirection();
+    if (ball.pos.x > view.canvas.width - ball.width) {
+      ball.forceLeft();
+    }
+    if (ball.pos.x < 0) {
+      ball.forceRight();
     }
     // Ball y movement constraints
     if (ball.pos.y < 0) {

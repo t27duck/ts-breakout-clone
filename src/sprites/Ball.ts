@@ -65,6 +65,18 @@ export class Ball {
     }
   }
 
+  forceLeft(): void {
+    if (this.speed.x > 0) {
+      this.speed.x = -this.speed.x;
+    }
+  }
+
+  forceRight(): void {
+    if (this.speed.x < 0) {
+      this.speed.x = -this.speed.x;
+    }
+  }
+
   tickSpeed(): void {
     const currentXSpeed = this.speed.x;
     const currentYSpeed = this.speed.y
