@@ -40,11 +40,12 @@ export class Collision {
 
     bricks.forEach((brick, index) => {
       if (this.isCollidingBrick(ball, brick)) {
-        ball.changeYDirection();
         ball.collided = true;
 
         if (this.isCollidingSide(ball, brick)) {
           ball.changeXDirection();
+        } else { // Colliding top or bottom
+          ball.changeYDirection();
         }
 
         if (brick.energy === 1) {
